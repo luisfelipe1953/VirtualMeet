@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: "Outfit", sans-serif;
+    }
+}
+
+@layer base {
+    h1 {
+        @apply font-bold;
+    }
+    h2 {
+        @apply font-bold text-3xl;
+    }
+}
+
+@layer components {
+    .logo {
+        font-size: clamp(20px, -0.8px + 10vw, 80px);
+        color: transparent;
+    }
+
+    .agenda-titulo {
+        font-size: clamp(20px, -0.8px + 8vw, 60px);
+        @apply whitespace-nowrap;
+    }
+
+    .evento-nombre {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .evento-introduccion {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .boleto-Presencial {
+        background-color: hsla(178, 100%, 39%, 1);
+        background-image: radial-gradient(
+                at 40% 20%,
+                hsla(209, 100%, 47%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 80% 0%,
+                hsla(178, 100%, 39%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 69% 82%,
+                hsla(209, 100%, 47%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 26% 91%,
+                hsla(178, 100%, 39%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 0% 100%,
+                hsla(209, 100%, 47%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 27% 22%,
+                hsla(178, 100%, 39%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 0% 0%,
+                hsla(209, 100%, 47%, 1) 0px,
+                transparent 50%
+            );
+    }
+
+    .boleto-Gratis {
+        @apply bg-primario;
+    }
+
+    .boleto-Virtual {
+        @apply bg-secundario;
+    }
+
+    
+
+    .container-md {
+        width: min(95%, 800px);
+    }
+    .titulo-front {
+        @apply text-4xl text-center font-black m-12;
+    }
+    .subtitulo-front {
+        @apply text-center mb-12;
+    }
+    .logo-normal {
+        @apply text-white  sm:items-center sm:m-0 sm:text-left text-center text-xl sm:text-[40px];
+        font-size: clamp(20px, -1px + 10vw, 35px);
+    }
+    .btn-primario {
+        @apply text-center cursor-pointer py-[15px] px-[40px] text-lg border-0 bg-secundario uppercase font-bold hover:bg-secundarioDarken;
+    }
+    .btn-crear {
+        @apply text-center text-white cursor-pointer py-[15px] px-[40px] text-sm border-0 bg-primario uppercase font-bold hover:bg-primarioDarken hover:text-white mb-6;
+    }
+
+    .swiper-button-next:after {
+        @apply text-white opacity-50;
+    }
+    .swiper-button-prev:after {
+        @apply text-white opacity-50;
+    }
+    .specific-location .bg-secundarioSpecific {
+        @apply bg-secundario hover:bg-secundarioDarken;
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateY(-80%);
+        }
+        to {
+            transform: translateY(0%);
+        }
+    }
+    .animate-slide {
+        animation: slide 1.5s ease-in-out 3;
+    }
+    .boleto {
+        width: min(100% - 50px, 580px);
+        @apply mx-auto p-[60px] rounded-2xl relative text-white;
+    }
+    .boleto-decoration {
+        @apply rounded-full bg-white absolute h-[50px] w-[50px];
+    }
+
+    .codigo {
+        @apply font-bold text-center mt-[10px] mb-5 text-2xl sm:text-[40px] rotate-90 w-[270px] absolute origin-[0px_0px] top-0;
+        left: calc(100% - 50px);
+    }
+
+    .registro-mostrar {
+        @apply flex justify-between items-center even:bg-gray-300 p-3 rounded
+    }
+
+    .registro-eliminar {
+        @apply text-red-700 cursor-pointer
+    }
+}
