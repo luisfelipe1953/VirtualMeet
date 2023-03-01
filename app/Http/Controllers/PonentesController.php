@@ -78,8 +78,8 @@ class PonentesController extends Controller
             $imagen_png = Image::make($imagen)->fit(800, 800)->encode('png', 80);
             $imagen_webp = Image::make($imagen)->fit(800, 800)->encode('webp', 80);
             // guardar las imagenes codificadas
-            Storage::disk('public')->put($carpeta_imagenes . '/' . $nombre_imagen . '.png', (string)$imagen_png);
-            Storage::disk('public')->put($carpeta_imagenes . '/' . $nombre_imagen . '.webp', (string)$imagen_webp);
+            Storage::disk('public')->put($carpeta_imagenes . '/' . $nombre_imagen . '.png', (string)$imagen_png, 'public');
+            Storage::disk('public')->put($carpeta_imagenes . '/' . $nombre_imagen . '.webp', (string)$imagen_webp, 'public');
             // guardar el nombre de la imagen en una variable para usarlo más tarde
             $ponente->imagen = $nombre_imagen;
         }

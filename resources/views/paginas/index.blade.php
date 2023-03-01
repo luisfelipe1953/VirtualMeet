@@ -18,7 +18,7 @@
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
