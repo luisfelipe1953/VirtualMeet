@@ -12,6 +12,7 @@
 
         <div class="slider swiper">
             <div class="swiper-wrapper">
+                @if(isset($eventos['conferencias_v']) && count($eventos['conferencias_v']) > 0)
                 @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento', [
@@ -23,6 +24,7 @@
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -32,6 +34,8 @@
 
         <div class="slider swiper">
             <div class="swiper-wrapper">
+                @if(isset($eventos['conferencias_s']) && count($eventos['conferencias_s']) > 0)
+
                 @foreach ($eventos['conferencias_s'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
@@ -42,6 +46,7 @@
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -54,6 +59,7 @@
 
         <div class="slider swiper specific-location">
             <div class="swiper-wrapper">
+                @if(isset($eventos['workshops_v']) && count($eventos'workshops_v']) > 0)
                 @foreach ($eventos['workshops_v'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
@@ -64,6 +70,7 @@
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -73,6 +80,7 @@
 
         <div class="slider swiper specific-location">
             <div class="swiper-wrapper">
+                @if(isset($eventos['workshops_s']) && count($eventos'workshops_s']) > 0)
                 @foreach ($eventos['workshops_s'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
@@ -83,6 +91,7 @@
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -120,7 +129,7 @@
     <p class="text-center mb-12">Conoce a nuestros expertos de DevWebCamp</p>
     <div class="sm:container container-md mx-auto grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
         @foreach($speakers as $speaker)
-        <div {{ aos_animacion(); }}  class="border border-gray-600 p-8 m-3 bg-child bg-no-repeat bg-[length:350px] bg-top">
+        <div {{ aos_animacion(); }} class="border border-gray-600 p-8 m-3 bg-child bg-no-repeat bg-[length:350px] bg-top">
             <style>
                 .bg-child:nth-child(4n + 1) {
                     background-image: url('/img/bg_1.png');
@@ -218,8 +227,8 @@
     <h2 class="text-4xl text-center font-black m-12">Boletos & Precios</h2>
     <p class="text-center mb-12">Precios para ViertualMeet</p>
 
-    <div  class="grid grid-cols-1 gap-[50px] max-w-[800px] mx-auto">
-        <div  class="boleto boleto-Presencial">
+    <div class="grid grid-cols-1 gap-[50px] max-w-[800px] mx-auto">
+        <div class="boleto boleto-Presencial">
             <div class="boleto-decoration top-[45%] right-[-14px]"></div>
             <div class="boleto-decoration top-[45%] left-[-14px]"></div>
             <h4 class="logo-normal font-black">&#60;ViertualMeet /></h4>
