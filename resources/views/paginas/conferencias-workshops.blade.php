@@ -12,17 +12,19 @@
 
         <div class="slider swiper">
             <div class="swiper-wrapper">
+                @if(isset($eventos['conferencias_v']) && count($eventos['conferencias_v']) > 0)
                 @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -32,16 +34,19 @@
 
         <div class="slider swiper">
             <div class="swiper-wrapper">
+                @if(isset($eventos['conferencias_s']) && count($eventos['conferencias_s']) > 0)
+
                 @foreach ($eventos['conferencias_s'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -54,16 +59,18 @@
 
         <div class="slider swiper specific-location">
             <div class="swiper-wrapper">
+                @if(isset($eventos['workshops_v']) && count($eventos ['workshops_v']) > 0)
                 @foreach ($eventos['workshops_v'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -73,16 +80,18 @@
 
         <div class="slider swiper specific-location">
             <div class="swiper-wrapper">
+                @if(isset($eventos['workshops_s']) && count($eventos ['workshops_s']) > 0)
                 @foreach ($eventos['workshops_s'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
