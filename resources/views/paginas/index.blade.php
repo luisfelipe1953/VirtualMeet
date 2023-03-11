@@ -59,7 +59,7 @@
 
         <div class="slider swiper specific-location">
             <div class="swiper-wrapper">
-                @if(isset($eventos['workshops_v']) && count($eventos'workshops_v']) > 0)
+                @if(isset($eventos['workshops_v']) && count($eventos ['workshops_v']) > 0)
                 @foreach ($eventos['workshops_v'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
@@ -80,7 +80,7 @@
 
         <div class="slider swiper specific-location">
             <div class="swiper-wrapper">
-                @if(isset($eventos['workshops_s']) && count($eventos'workshops_s']) > 0)
+                @if(isset($eventos['workshops_s']) && count($eventos ['workshops_s']) > 0)
                 @foreach ($eventos['workshops_s'] as $evento)
                 @component('components.evento', [
                 'hora' => $evento->hora->hora,
