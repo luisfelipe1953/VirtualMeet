@@ -25,6 +25,7 @@ Route::get('regalos',[RegalosController::class, 'index'])->middleware('can:admin
 Route::get('/',[PaginasController::class, 'index']);
 Route::get('/virtualmeet', [PaginasController::class, 'evento']);
 Route::get('/conferencias-workshops', [PaginasController::class, 'conferencias']);
+Route::get('/speakers', [PaginasController::class, 'speakers']);
 
 // paquetes de registro al evento
 Route::get('/paquetes', [RegistroController::class, 'paquetes']);

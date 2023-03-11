@@ -22,7 +22,7 @@
     <x-header />
     @yield('contenido')
     <x-footer />
-
+    <p>1</p>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

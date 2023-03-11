@@ -39,7 +39,7 @@ class PaginasController extends Controller
             }
         }
 
-        $speakers = Ponentes::all();
+        $speakers = Ponentes::take(3)->get();
 
         return view('paginas.index')->with([
             'eventos' => $eventos_formateados,
@@ -78,5 +78,12 @@ class PaginasController extends Controller
         }
 
         return view('paginas.conferencias-workshops')->with('eventos', $eventos_formateados);
+    }
+    
+    public function speakers()
+    {  
+        
+        $speakers = Ponentes::all();
+        return view('paginas.speakers')->with( 'speakers', $speakers);
     }
 }

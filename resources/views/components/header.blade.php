@@ -3,7 +3,10 @@
     <div class="">
         <img src="{{ url('img/header.jpg') }}" alt="" class="object-cover w-full absolute h-[600px] z-0">
         <img src="{{ url('img/2.png') }}" alt="" class="absolute z-20 w-[400px]">
-        <img src="{{ url('img/3.png') }}" alt="" class="animate-slide absolute z-20 w-[200px] inset-x-3/4 inset-y-1/4 invert cursor-pointer hover:">
+        <a href="#paquetes" class="">
+            <img src="{{ url('img/3.png') }}" alt="" class="transition-transform ease-in-out hover:scale-110  animate-slide absolute z-20 sm:w-[200px] w-[160px] sm:inset-x-3/4 inset-x-48 sm:inset-y-1/4 inset-y-2/4 invert  ">
+        </a>
+
     </div>
     <div class="bg-gradient-to-r from-black min-h-[600px] absolute top-0 left-0 w-full z-10"></div>
     <div class="container mx-auto  text-white relative z-30">
@@ -23,7 +26,7 @@
                 <a href="{{ route('login') }}" class="text-white uppercase text-sm font-bold  hover:text-primario">Log in</a>
 
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="text-white uppercase text-sm font-bold hover:text-primario">Register</a>
+                <a href="{{ route('register') }}" class="text-white uppercase text-sm font-bold hover:text-primario mr-0">Register</a>
             </nav>
             @endif
             @endauth
@@ -51,7 +54,7 @@
 <div class="bg-primario">
     <div class="container mx-auto flex flex-col sm:flex-row justify-between text-white">
         <a href="/">
-            <h1 class="logo-normal mt-4 sm:mb-0 mb-5">
+            <h1 class="logo-normal mt-2 sm:mb-0 mb-5">
                 &#60;VirtualMeet />
             </h1>
         </a>
@@ -59,7 +62,7 @@
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('virtualmeet') ? 'bg-white text-primario' : '' }}" href="/virtualmeet">Evento</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('paquetes') ? 'bg-white text-primario' : '' }}" href="/paquetes">Paquetes</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('conferencias-workshops') ? 'bg-white text-primario' : '' }}" href="/conferencias-workshops">Workshops / Conferencias</a>
-            <!-- <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('registo') ? 'bg-white text-primario' : '' }}" href="/registo">Comprar Pase</a> -->
+           <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('speakers') ? 'bg-white text-primario' : '' }}" href="/registo">Speakers</a>
         </nav>
     </div>
 </div>

@@ -37,7 +37,7 @@
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
@@ -59,7 +59,7 @@
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
@@ -78,7 +78,7 @@
                 'hora' => $evento->hora->hora,
                 'nombre' => $evento->nombre,
                 'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
+                'ponente_imagen' => $evento->ponente->imagen,
                 'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
                 ])
                 @endcomponent
@@ -206,6 +206,7 @@
             </div>
         </div>
         @endforeach
+        <a href="/speakers" class="btn-crear">Ver mas </a>
     </div>
 </section>
 
@@ -213,7 +214,7 @@
     <!-- mapaaaa -->
 </div>
 
-<section>
+<section id="paquetes">
     <h2 class="text-4xl text-center font-black m-12">Boletos & Precios</h2>
     <p class="text-center mb-12">Precios para ViertualMeet</p>
 

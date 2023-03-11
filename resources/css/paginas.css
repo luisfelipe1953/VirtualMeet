@@ -101,8 +101,9 @@
         @apply text-center mb-12;
     }
     .logo-normal {
-        @apply text-white  sm:items-center sm:m-0 sm:text-left text-center text-xl sm:text-[40px];
-        font-size: clamp(20px, -1px + 10vw, 35px);
+        font-size: clamp(20px, -15px + 10vw, 35px);
+        @apply text-white  sm:items-center sm:m-0 sm:text-left text-center ;
+
     }
     .btn-primario {
         @apply text-center cursor-pointer py-[15px] px-[40px] text-lg border-0 bg-secundario uppercase font-bold hover:bg-secundarioDarken;
