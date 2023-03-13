@@ -3,9 +3,8 @@
     <div class="">
         <img src="{{ url('img/header.jpg') }}" alt="" class="object-cover w-full absolute h-[600px] z-0">
         <img src="{{ url('img/2.png') }}" alt="" class="absolute z-20 w-[400px]">
-        <a href="#paquetes" class="">
-            <img src="{{ url('img/3.png') }}" alt="" class="transition-transform ease-in-out hover:scale-110  animate-slide absolute z-20 sm:w-[200px] w-[160px] sm:inset-x-3/4 inset-x-48 sm:inset-y-1/4 inset-y-2/4 invert  ">
-        </a>
+        <img src="{{ url('img/3.png') }}" alt="" class="transition-transform ease-in-out hover:scale-110  animate-slide absolute z-20 sm:w-[200px] w-[160px] sm:inset-x-3/4 inset-x-48 sm:inset-y-1/4 inset-y-2/4 invert  ">
+
 
     </div>
     <div class="bg-gradient-to-r from-black min-h-[600px] absolute top-0 left-0 w-full z-10"></div>
@@ -62,7 +61,7 @@
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('virtualmeet') ? 'bg-white text-primario' : '' }}" href="/virtualmeet">Evento</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('paquetes') ? 'bg-white text-primario' : '' }}" href="/paquetes">Paquetes</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('conferencias-workshops') ? 'bg-white text-primario' : '' }}" href="/conferencias-workshops">Workshops / Conferencias</a>
-           <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('speakers') ? 'bg-white text-primario' : '' }}" href="/speakers">Speakers</a>
+            <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('speakers') ? 'bg-white text-primario' : '' }}" href="/speakers">Speakers</a>
         </nav>
     </div>
 </div>

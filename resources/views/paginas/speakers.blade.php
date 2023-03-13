@@ -5,7 +5,7 @@
 
 <section class="sm:container container-md mx-auto">
 <h1 class="titulo-front">Speakers</h1>
-    <p  class="subtitulo-front">Conoce a nuestros expertos de DevWebCamp</p>
+    <p  class="subtitulo-front">Conoce a nuestros expertos de Virtualmeet</p>
     <div class="sm:container container-md mx-auto grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
         @foreach($speakers as $speaker)
   <div {{ aos_animacion(); }}  class="border border-gray-600 p-8 m-3 bg-child bg-no-repeat bg-[length:350px] bg-top">

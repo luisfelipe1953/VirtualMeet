@@ -126,7 +126,7 @@
 
 <section>
     <h1 class="text-center text-4xl font-black m-12">Speakers</h1>
-    <p class="text-center mb-12">Conoce a nuestros expertos de DevWebCamp</p>
+    <p class="text-center mb-12">Conoce a nuestros expertos de Virtualmeet</p>
     <div class="sm:container container-md mx-auto grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
         @foreach($speakers as $speaker)
         <div {{ aos_animacion(); }} class="border border-gray-600 p-8 m-3 bg-child bg-no-repeat bg-[length:350px] bg-top">
@@ -215,8 +215,11 @@
             </div>
         </div>
         @endforeach
-        <a href="/speakers" class="btn-crear">Ver mas </a>
     </div>
+    <div class="flex justify-end mr-48">
+            <a href="/speakers" class="btn-crear">Ver mas </a>
+        </div>
+
 </section>
 
 <div id="mapa" class="h-[450px] mt-10">
