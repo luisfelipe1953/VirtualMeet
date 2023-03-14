@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/tags.js',
+                'resources/js/ponent.js',
                 'resources/js/horas.js',
                 'resources/js/tags.js',
                 'resources/js/slider.js',

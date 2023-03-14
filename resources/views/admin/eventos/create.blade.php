@@ -39,7 +39,7 @@
 
 
 @vite('resources/js/horas.js')
-@vite('resources/js/ponentes.js')
+@vite('resources/js/ponent.js')
 
 
 @endsection
