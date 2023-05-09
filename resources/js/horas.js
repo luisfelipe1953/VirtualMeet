@@ -2,11 +2,11 @@
     const horas = document.querySelector('#horas');
 
     if(horas){
-        const dias = document.querySelectorAll('[name="dia"]');
-        const inputHiddenDia = document.querySelector('[name="dia_id"]');
-        const categoria = document.querySelector('[name="categoria_id"]');
+        const dias = document.querySelectorAll('[name="day"]');
+        const inputHiddenDia = document.querySelector('[name="day_id"]');
+        const categoria = document.querySelector('[name="category_id"]');
 
-        const inputHiddenhora = document.querySelector('[name="hora_id"]');
+        const inputHiddenhora = document.querySelector('[name="time_id"]');
 
         categoria.addEventListener('change', terminoBusqueda)
         dias.forEach(dia => dia.addEventListener('change', terminoBusqueda));   
@@ -14,8 +14,8 @@
     
 
         let busqueda = {
-            categoria_id: categoria.value || '',
-            dia: inputHiddenDia.value || '',
+            category_id: categoria.value || '',
+            day: inputHiddenDia.value || '',
         }
 
         // edit eventos hora
@@ -57,8 +57,9 @@
 
         async function buscarEventos(){
             
-            const {dia, categoria_id} = busqueda;
-            const url = `/api/evento?dia_id=${dia}&categoria_id=${categoria_id}`
+            const {day, category_id} = busqueda;
+            console.log(busqueda)
+            const url = `/api/evento?day_id=${day}&category_id=${category_id}`
 
             const resultado = await fetch(url);
             const eventos = await resultado.json();
@@ -72,7 +73,7 @@
             listadoHoras.forEach(li => li.classList.add('hora-desabilitada'))
             // comprobar eventos ya tomados y quitar la variable de desabilitado
 
-            const horasTomadas = eventos.map(evento => String(evento.hora_id));
+            const horasTomadas = eventos.map(evento => String(evento.time_id));
         
             const listadoHorasArray = Array.from(listadoHoras)
             // console.log(listadoHorasArray)
@@ -96,7 +97,7 @@
             inputHiddenhora.value = e.target.dataset.horaId
 
             //llenar el campo oculto de dia
-            inputHiddenDia.value = document.querySelector('[name="dia"]:checked').value
+            inputHiddenDia.value = document.querySelector('[name="day"]:checked').value
         }
     }
 })();

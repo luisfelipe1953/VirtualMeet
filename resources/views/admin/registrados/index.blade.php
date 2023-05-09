@@ -25,13 +25,13 @@
                 @foreach ($registros as $registro)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="px-6 py-4">
-                        {{ $registro->usuario->name }}
+                        {{ $registro->user->name }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $registro->usuario->email }}
+                        {{ $registro->user->email }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $registro->paquete->nombre }}
+                        {{ $registro->package->name }}
                     </td>
                 </tr>
 

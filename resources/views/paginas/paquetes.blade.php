@@ -83,8 +83,8 @@
                 return actions.order.capture().then(function(orderData) {
 
                     const datos = new FormData();
-                    datos.append('paquete_id', orderData.purchase_units[0].description);
-                    datos.append('pago_id', orderData.purchase_units[0].payments.captures[0].id);
+                    datos.append('package_id', orderData.purchase_units[0].description);
+                    datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
 
                     fetch('/finalizar-registro/pagar', {
                             method: 'POST',
@@ -132,8 +132,8 @@
                 return actions.order.capture().then(function(orderData) {
                     
                     const datos = new FormData();
-                    datos.append('paquete_id', orderData.purchase_units[0].description);
-                    datos.append('pago_id', orderData.purchase_units[0].payments.captures[0].id);
+                    datos.append('package_id', orderData.purchase_units[0].description);
+                    datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
 
                     fetch('/finalizar-registro/pagar', {
                             method: 'POST',

@@ -16,11 +16,11 @@
                 @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach
@@ -38,11 +38,11 @@
 
                 @foreach ($eventos['conferencias_s'] as $evento)
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach
@@ -62,11 +62,11 @@
                 @if(isset($eventos['workshops_v']) && count($eventos ['workshops_v']) > 0)
                 @foreach ($eventos['workshops_v'] as $evento)
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach
@@ -83,11 +83,11 @@
                 @if(isset($eventos['workshops_s']) && count($eventos ['workshops_s']) > 0)
                 @foreach ($eventos['workshops_s'] as $evento)
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach

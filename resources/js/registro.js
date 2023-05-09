@@ -118,10 +118,10 @@
                 },
                 body: datos
             });
+            console.log(respuesta);
 
             const resultado = await respuesta.json();
 
-            console.log(resultado);
 
             if(resultado.resultado) {
                 Swal.fire(

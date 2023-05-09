@@ -1,13 +1,13 @@
 (function () {
 
-    const inputPonentes = document.querySelector('#ponentes');
+    const inputPonentes = document.querySelector('#speaker');
 
     if (inputPonentes) {
         let ponentes = [];
         let ponentesFiltrados = [];
 
         const listadoPonentes = document.querySelector('#ul-ponentes')
-        const inputHiddenPonente = document.querySelector('[name="ponente_id"]');
+        const inputHiddenPonente = document.querySelector('[name="speaker_id"]');
 
         obtenerPonentes()
         inputPonentes.addEventListener('input', buscarPonentes)
@@ -20,7 +20,7 @@
                 //insertar en el html
                 const ponenteDOM = document.createElement('LI')
                 ponenteDOM.classList.add('li-ponentes', 'ponente-seleccionado')
-                ponenteDOM.textContent = `${ponente.nombre} ${ponente.apellido}`
+                ponenteDOM.textContent = `${ponente.name} ${ponente.lastname}`
 
                 listadoPonentes.appendChild(ponenteDOM)
             })()
@@ -46,8 +46,8 @@
         function formaterPonentes(ArrayPonentes = []) {
             ponentes = ArrayPonentes.map(ponente => {
                 return {
-                    nombre: `${ponente.nombre.trim()} ${ponente.apellido.trim()}`,
-                    id: ponente.id
+                    name: `${ponente.name.trim()} ${ponente.lastname.trim()}`,
+                    lastname: ponente.id
                 }
             })
         }
@@ -58,7 +58,7 @@
             if (busqueda.length > 3) {
                 const expresion = new RegExp(busqueda, 'i');
                 ponentesFiltrados = ponentes.filter(ponente => {
-                    if (ponente.nombre.toLowerCase().search(expresion) !== -1) {
+                    if (ponente.name.toLowerCase().search(expresion) !== -1) {
                         return ponente;
                     }
                 })
@@ -78,7 +78,7 @@
                 ponentesFiltrados.forEach(ponente => {
                     const ponenteHtml = document.createElement('LI')
                     ponenteHtml.classList.add('li-ponentes')
-                    ponenteHtml.textContent = ponente.nombre
+                    ponenteHtml.textContent = ponente.name
                     ponenteHtml.dataset.ponenteId = ponente.id
                     ponenteHtml.onclick = seleccionarPonente
 

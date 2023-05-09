@@ -11,72 +11,80 @@
             <p class="">Viernes 5 de Octubre</p>
 
             <div class="grid gap-7 sm:grid-cols-2 grid-cols-1">
+                @if(isset($eventos['conferencias_v']) && count($eventos['conferencias_v']) > 0)
                 @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento-registro', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido,
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
-                'disponibles' => $evento->disponibles
+                'disponibles' => $evento->available
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
 
             <p class="mt-14 mb-8">Sabado 6 de Octubre</p>
 
             <div class="grid gap-7 sm:grid-cols-2 grid-cols-1">
-                @foreach($eventos['conferencias_s'] as $evento )
+                @if(isset($eventos['conferencias_v']) && count($eventos['conferencias_v']) > 0)
+                @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento-registro', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido,
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
-                'disponibles' => $evento->disponibles
+                'disponibles' => $evento->available
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
 
             <h1 class="agenda-titulo text-secundarioDarken mt-12 mx-0">&lt;Workshops /></h1>
             <p class="mt-14 mb-8">Viernes 5 de Octubre</p>
 
             <div class="grid gap-7 sm:grid-cols-2 grid-cols-1 specific-location">
-                @foreach($eventos['workshops_v'] as $evento )
+                @if(isset($eventos['conferencias_v']) && count($eventos['conferencias_v']) > 0)
+                @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento-registro', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido,
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
-                'disponibles' => $evento->disponibles
+                'disponibles' => $evento->available
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
             <p class="mt-14 mb-8">Sabado 6 de Octubre</p>
             <div class="grid gap-7 sm:grid-cols-2 grid-cols-1  specific-location">
-                @foreach($eventos['workshops_s'] as $evento )
+                @if(isset($eventos['conferencias_v']) && count($eventos['conferencias_v']) > 0)
+                @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento-registro', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido,
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
-                'disponibles' => $evento->disponibles
+                'disponibles' => $evento->available
                 ])
                 @endcomponent
                 @endforeach
+                @endif
             </div>
         </main>
 
@@ -91,7 +99,7 @@
                 <select id="regalo" class="w-full rounded">
                     <option value="" class="text-center">-- Selecciona tu regalo --</option>
                     @foreach ($regalos as $regalo)
-                    <option value="{{ $regalo->id }}">{{ $regalo->nombre }}</option>
+                    <option value="{{ $regalo->id }}">{{ $regalo->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -108,4 +116,3 @@
     </div>
 </section>
 @stop
-

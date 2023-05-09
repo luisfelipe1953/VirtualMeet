@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/evento', [APIcontroller::class, 'evento']);
+Route::post('/evento', [APIcontroller::class, 'evento']);
 Route::get('/ponentes', [APIcontroller::class, 'ponentes']);
 Route::get('/ponente', [APIcontroller::class, 'ponente']);
 Route::get('/regalos', [APIcontroller::class, 'regalos']);

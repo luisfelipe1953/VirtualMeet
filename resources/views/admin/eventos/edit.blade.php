@@ -33,8 +33,8 @@
 
 @section('script')
 
-@vite('resources/js/horas.js')
 @vite('resources/js/ponent.js')
+@vite('resources/js/horas.js')
 
 @endsection
 

@@ -2,40 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Record;
 use Illuminate\Http\Request;
-use App\Models\Registros;
-use App\Models\Eventos;
-use App\Models\User;
+use App\Repositories\EventRepository;
+use App\Repositories\RecordRepository;
 
 class DashboardController extends Controller
-{   
+{           
+    protected $record;
+    protected $event;
+
+    public function __construct(RecordRepository $record, EventRepository $event)
+    {
+        $this->record = $record;
+        $this->event = $event;
+    }
+
     public function index()
     {
         // Obtener ultimos registros
-        $registros = Registros::limit(5)->get();
+        $records = $this->record->limit(5);
 
-        //obtener usuarios de tablas relacionadas
-        $registro = Registros::with('usuario')->first();
-     
         // Calcular los ingresos
-        $virtuales = Registros::where('paquete_id', 2)->count();
-        $presenciales = Registros::where('paquete_id', 1)->count();
+        $virtuals = $this->record->whereCountRecord(2);
+        $inPerson = $this->record->whereCountRecord(1);
 
-        $ingresos = ($virtuales * 46.41) + ($presenciales * 189.54);
+        $inCome = ($virtuals * 46.41) + ($inPerson * 189.54);
+        
+        // Obtener Event con más y menos lugares disponibles
+        // limit y take es lo mismo limitan un numero de registros
+        $less_available = $this->event->orderByTake('available', 'ASC');
+        $more_available =  $this->event->orderByTake('available', 'DESC');
+
         
 
 
-        // Obtener eventos con más y menos lugares disponibles
-        // limit y take es lo mismo limitan un numero de registros
-        $menos_disponibles = Eventos::orderBy('disponibles', 'ASC')->take(5)->get();
-        $mas_disponibles =  Eventos::orderBy('disponibles', 'DESC')->take(5)->get();
-
-
+        
         return view('admin.dashboard.index')->with([
-            'registros' => $registros,
-            'ingresos' => $ingresos,
-            'menos_disponibles' => $menos_disponibles,
-            'mas_disponibles' => $mas_disponibles
+            'registros' => $records,
+            'ingresos' => $inCome,
+            'menos_disponibles' => $less_available,
+            'mas_disponibles' => $more_available
         ]);
     }
 }

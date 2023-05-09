@@ -17,9 +17,9 @@
     </a>
 </div>
 @if (session('success'))
-        <div class="alerta-exito my-5">
-            {{ session('success') }}
-        </div>
+<div class="alerta-exito my-5">
+    {{ session('success') }}
+</div>
 @endif
 
 <div>
@@ -51,16 +51,16 @@
 
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th class="px-6 py-4">
-                        {{$evento->nombre}}
+                        {{$evento->name}}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $evento->categoria->nombre }}
+                        {{ $evento->category->name }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $evento->dia->nombre . ", " . $evento->hora->hora }}
+                        {{ $evento->day->name . ", " . $evento->time->time }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $evento->ponente->nombre . ", " . $evento->ponente->apellido }}
+                        {{ $evento->speaker->name . ", " . $evento->speaker->lastname }}
                     </td>
                     <td class="px-6 py-4 flex text-base">
                         <a href="{{route('eventos.edit', $evento)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
@@ -87,12 +87,22 @@
     <p class="text-center">No hay eventos aun</p>
     @endif
     <div class="paginacion">
-        {!! $paginacion->enlace_anterior() !!}
-        <div class="pagina-numeros">
-            {!! $paginacion->numeros_paginas() !!}
-        </div>
+        <span>Página {{ $eventos->currentPage() }} de {{ $eventos->lastPage() }}:</span>
+        <ul class="pagina-numeros">
+            @if ($eventos->currentPage() > 1)
+            <li><a href="{{ $eventos->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+            @endif
 
-        {!! $paginacion->enlace_siguiente() !!}
+            @for ($i = 1; $i <= $eventos->lastPage(); $i++)
+                <li class="{{ ($eventos->currentPage() == $i) ? ' active' : '' }}">
+                    <a href="{{ $eventos->url($i) }}">{{ $i }}</a>
+                </li>
+                @endfor
+
+                @if ($eventos->hasMorePages())
+                <li><a href="{{ $eventos->nextPageUrl() }}" rel="next">&raquo;</a></li>
+                @endif
+        </ul>
     </div>
 </div>
 

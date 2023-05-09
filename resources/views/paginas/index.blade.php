@@ -16,11 +16,11 @@
                 @foreach($eventos['conferencias_v'] as $evento )
                 <!-- // puede ser un componente -->
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach
@@ -38,11 +38,11 @@
 
                 @foreach ($eventos['conferencias_s'] as $evento)
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach
@@ -62,11 +62,11 @@
                 @if(isset($eventos['workshops_v']) && count($eventos ['workshops_v']) > 0)
                 @foreach ($eventos['workshops_v'] as $evento)
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach
@@ -83,11 +83,11 @@
                 @if(isset($eventos['workshops_s']) && count($eventos ['workshops_s']) > 0)
                 @foreach ($eventos['workshops_s'] as $evento)
                 @component('components.evento', [
-                'hora' => $evento->hora->hora,
-                'nombre' => $evento->nombre,
-                'descripcion' => $evento->descripcion,
-                'ponente_imagen' => $evento->ponente->imagen,
-                'ponente_nombre' => $evento->ponente->nombre . " " . $evento->ponente->apellido
+                'hora' => $evento->time->time,
+                'nombre' => $evento->name,
+                'descripcion' => $evento->description,
+                'ponente_imagen' => $evento->speaker->image,
+                'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastmname
                 ])
                 @endcomponent
                 @endforeach
@@ -154,16 +154,16 @@
 
             <div class="speaker__informacion">
                 <h4 class="text-2xl font-black my-[20px]">
-                    {{ $speaker->nombre . ' ' . $speaker->apellido }}
+                    {{ $speaker->name . ' ' . $speaker->lastname }}
                 </h4>
 
                 <p class="text-gris my-[10px] text-xl leading-normal ">
-                    {{ $speaker->ciudad . ', ' . $speaker->pais }}
+                    {{ $speaker->city . ', ' . $speaker->country }}
                 </p>
 
                 <nav class="flex text-xl gap-[20px] mx-0 mt-[20px] ">
                     @php
-                    $redes = json_decode( $speaker->redes );
+                    $redes = json_decode( $speaker->networks );
                     @endphp
 
                     @if(!empty($redes->facebook))
@@ -217,8 +217,8 @@
         @endforeach
     </div>
     <div class="flex justify-end mr-48">
-            <a href="/speakers" class="btn-crear">Ver mas </a>
-        </div>
+        <a href="/speakers" class="btn-crear">Ver mas </a>
+    </div>
 
 </section>
 

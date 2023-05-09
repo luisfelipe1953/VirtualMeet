@@ -12,7 +12,7 @@
           new Chart(ctx, {
             type: 'bar',
             data: {
-              labels: resultado.map(datos => datos.nombre),
+              labels: resultado.map(datos => datos.name),
               datasets: [{
                 label: '',
                 data: resultado.map(datos => datos.total),

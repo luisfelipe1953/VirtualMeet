@@ -18,7 +18,7 @@
             @if(!empty($registros))
                 @foreach ($registros as $registro)
                 <p class="">
-                    {{ $registro->usuario->name }}
+                    {{ $registro->user->name }}
                 </p>
                 @endforeach
             @endif
@@ -36,7 +36,7 @@
             @if(!empty($menos_disponibles))
                 @foreach ($menos_disponibles as $evento)
                 <p class="bloque__texto">
-                    {{ $evento->nombre . " - " . $evento->disponibles . ' Disponibles' }}
+                    {{ $evento->name . " - " . $evento->available . ' Disponibles' }}
                 </p>
                 @endforeach
             @endif
@@ -49,7 +49,7 @@
             @if(!empty($mas_disponibles))
                 @foreach ($mas_disponibles as $evento)
                 <p class="bloque__texto">
-                    {{ $evento->nombre . " - " . $evento->disponibles . ' Disponibles' }}
+                    {{ $evento->name . " - " . $evento->available . ' Disponibles' }}
                 </p>
                 @endforeach
             @endif

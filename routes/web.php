@@ -1,45 +1,49 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\EventosController;
-use App\Http\Controllers\PaginasController;
-use App\Http\Controllers\PonentesController;
-use App\Http\Controllers\RegistradosController;
-use App\Http\Controllers\RegistroController;
-use App\Http\Controllers\RegalosController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\SpeakerController;
+use App\Http\Controllers\RegisteredController;
+use App\Http\Controllers\RecordController;
+use App\Http\Controllers\GiftController;
 
 
 use Illuminate\Support\Facades\Route;
 
 
 //admin 
-Route::get('dashboard',[DashboardController::class, 'index'])->middleware('can:admin');
-Route::resource('ponentes', PonentesController::class)->middleware('can:admin');
-Route::resource('eventos', EventosController::class)->middleware('can:admin');
-Route::get('registrados',[RegistradosController::class, 'index'])->middleware('can:admin');
-Route::get('regalos',[RegalosController::class, 'index'])->middleware('can:admin');
+
+// ->middleware('can:admin')
+
+Route::get('dashboard', [DashboardController::class, 'index']);
+Route::resource('ponentes', SpeakerController::class);
+Route::resource('eventos', EventController::class);
+Route::get('registrados', [RegisteredController::class, 'index']);
+Route::get('regalos', [GiftController::class, 'index']);
 
 
 
 //paginas publica
-Route::get('/',[PaginasController::class, 'index']);
-Route::get('/virtualmeet', [PaginasController::class, 'evento']);
-Route::get('/conferencias-workshops', [PaginasController::class, 'conferencias']);
-Route::get('/speakers', [PaginasController::class, 'speakers']);
+Route::get('/', [PageController::class, 'index']);
+Route::get('virtualmeet', [PageController::class, 'evento']);
+Route::get('conferencias-workshops', [PageController::class, 'conferencias']);
+Route::get('speakers', [PageController::class, 'speakers']);
 
 // paquetes de registro al evento
-Route::get('/paquetes', [RegistroController::class, 'paquetes']);
-Route::get('/finalizar-registro/gratis', [RegistroController::class, 'paqueteGratis'])->middleware(['auth', 'can:admin,user']);
+Route::get('paquetes', [RecordController::class, 'paquetes']);
 
 // pagar
-Route::post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
+Route::post('finalizar-registro/pagar', [RecordController::class, 'pagar']);
 
-//boletos virtuales
-Route::get('/boleto', [RegistroController::class, 'boleto'])->middleware('can:admin,user');
+Route::middleware('can:admin,user')->group(function () {
+    Route::get('boleto', [RecordController::class, 'boleto']);
+    Route::post('finalizar-registro/gratis', [RecordController::class, 'paqueteGratis']);
+    Route::get('finalizar-registro/conferencias', [RecordController::class, 'elegirConferencia']);
+});
 
 //elegir conferencias 
-Route::get('/finalizar-registro/conferencias', [RegistroController::class, 'elegirConferencia'])->middleware(['auth', 'can:admin,user']);
-Route::post('/finalizar-registro/conferencias', [RegistroController::class, 'postRegistroConferencia']);
+Route::post('finalizar-registro/conferencias', [RecordController::class, 'postRegistroConferencia']);
 
 
 Route::middleware([

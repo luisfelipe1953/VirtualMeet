@@ -33,16 +33,16 @@
 
             <div class="speaker__informacion">
                 <h4 class="text-2xl font-black my-[20px]">
-                    {{ $speaker->nombre . ' ' . $speaker->apellido }}
+                    {{ $speaker->name . ' ' . $speaker->lastname }}
                 </h4>
 
                 <p class="text-gris my-[10px] text-xl leading-normal ">
-                    {{ $speaker->ciudad . ', ' . $speaker->pais }}
+                    {{ $speaker->city . ', ' . $speaker->country }}
                 </p>
 
                 <nav class="flex text-xl gap-[20px] mx-0 mt-[20px] ">
                     @php
-                    $redes = json_decode( $speaker->redes );
+                    $redes = json_decode( $speaker->networks );
                     @endphp
 
                     @if(!empty($redes->facebook))

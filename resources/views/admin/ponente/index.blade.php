@@ -18,9 +18,9 @@
 </div>
 
 @if (session('success'))
-        <div class="alerta-exito my-5">
-            {{ session('success') }}
-        </div>
+<div class="alerta-exito my-5">
+    {{ session('success') }}
+</div>
 @endif
 
 <div>
@@ -48,12 +48,12 @@
                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                         <img class="w-10 h-10 rounded-full" srcset="{{ env('HOST') . '/storage/imagenes/speakers/' . $ponente->imagen }}.webp" alt="">
                         <div class="pl-3">
-                            <div class="text-base font-semibold">{{$ponente->nombre}}</div>
-                            <div class="font-normal text-gray-500">{{$ponente->apellido}}</div>
+                            <div class="text-base font-semibold">{{$ponente->name}}</div>
+                            <div class="font-normal text-gray-500">{{$ponente->lastname}}</div>
                         </div>
                     </th>
                     <td class="px-6 py-4">
-                        {{$ponente->ciudad . ", ". $ponente->pais}}
+                        {{$ponente->city . ", ". $ponente->country}}
                     </td>
                     <td class="py-4 flex text-base">
                         <a href="{{route('ponentes.edit', $ponente)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
@@ -78,12 +78,22 @@
     <p class="text-center">No hay ponentes aun</p>
     @endif
     <div class="paginacion">
-        {!! $paginacion->enlace_anterior() !!}
-        <div class="pagina-numeros">
-            {!! $paginacion->numeros_paginas() !!}
-        </div>
+        <span>Página {{ $ponentes->currentPage() }} de {{ $ponentes->lastPage() }}:</span>
+        <ul class="pagina-numeros">
+            @if ($ponentes->currentPage() > 1)
+            <li><a href="{{ $ponentes->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+            @endif
 
-        {!! $paginacion->enlace_siguiente() !!}
+            @for ($i = 1; $i <= $ponentes->lastPage(); $i++)
+                <li class="{{ ($ponentes->currentPage() == $i) ? ' active' : '' }}">
+                    <a href="{{ $ponentes->url($i) }}">{{ $i }}</a>
+                </li>
+                @endfor
+
+                @if ($ponentes->hasMorePages())
+                <li><a href="{{ $ponentes->nextPageUrl() }}" rel="next">&raquo;</a></li>
+                @endif
+        </ul>
     </div>
 </div>
 
