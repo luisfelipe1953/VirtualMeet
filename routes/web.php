@@ -13,14 +13,11 @@ use Illuminate\Support\Facades\Route;
 
 
 //admin 
-
-// ->middleware('can:admin')
-
-Route::get('dashboard', [DashboardController::class, 'index']);
-Route::resource('ponentes', SpeakerController::class);
-Route::resource('eventos', EventController::class);
-Route::get('registrados', [RegisteredController::class, 'index']);
-Route::get('regalos', [GiftController::class, 'index']);
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('can:admin');
+Route::resource('ponentes', SpeakerController::class)->middleware('can:admin');
+Route::resource('eventos', EventController::class)->middleware('can:admin');
+Route::get('registrados', [RegisteredController::class, 'index'])->middleware('can:admin');
+Route::get('regalos', [GiftController::class, 'index'])->middleware('can:admin');
 
 
 
