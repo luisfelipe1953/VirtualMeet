@@ -83,17 +83,16 @@
                 return actions.order.capture().then(function(orderData) {
 
                     const datos = new FormData();
-                    datos.append('package_id', orderData.purchase_units[0].description);
                     datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
 
-                    fetch('/finalizar-registro/pagar', {
+                    fetch('/packagesfinish-registration/pay', {
                             method: 'POST',
                             body: datos
                         })
                         .then(respuesta => respuesta.json())
                         .then(resultado => {
                             if (resultado) {
-                                actions.redirect('http://127.0.0.1:8000/finalizar-registro/conferencias')
+                                actions.redirect('https://virtualmeet-production.up.railway.app/finalizar-registro/conferencias')
                             }
                         })
 
@@ -132,17 +131,16 @@
                 return actions.order.capture().then(function(orderData) {
                     
                     const datos = new FormData();
-                    datos.append('package_id', orderData.purchase_units[0].description);
                     datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
 
-                    fetch('/finalizar-registro/pagar', {
+                    fetch('/packagesfinish-registration/pay', {
                             method: 'POST',
                             body: datos
                         })
                         .then(respuesta => respuesta.json())
                         .then(resultado => {
                             if (resultado) {
-                                actions.redirect('http://127.0.0.1:8000/finalizar-registro/conferencias')
+                                actions.redirect('https://virtualmeet-production.up.railway.app/finalizar-registro/conferencias')
                             }
                         })
                 });

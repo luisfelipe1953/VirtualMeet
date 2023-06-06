@@ -47,7 +47,7 @@ class SpeakerControllerTest extends TestCase
 
         Storage::fake('public');
 
-        $response = $this->post('/ponentes', [
+        $response = $this->post('/speakers', [
             'name' => 'John Doe',
             'lastname' => 'apellido',
             'city' => 'monteria',
@@ -115,7 +115,7 @@ class SpeakerControllerTest extends TestCase
             'tags' => 'laravel,php,js,css',
             'networks' => null,
         ];
-        $response = $this->post('/ponentes', $speaker);
+        $response = $this->post('/speakers', $speaker);
 
         // Obtener el primer ponente
         $firstSpeaker = Speaker::first();
@@ -168,7 +168,7 @@ class SpeakerControllerTest extends TestCase
             'networks' => null,
         ];
 
-        $response = $this->post('/ponentes', $speaker);
+        $response = $this->post('/speakers', $speaker);
 
         // Obtener el primer ponente
         $speaker = Speaker::first();

@@ -28,7 +28,7 @@ class RegisteredControllerTest extends TestCase
         Record::factory(8)->create();
 
         // Hacer una solicitud GET a la ruta 'registrados.index'
-        $response = $this->get('/registrados');
+        $response = $this->get('/registered');
 
         // Verificar que la respuesta del servidor tenga el código HTTP 200 (OK)
         $response->assertStatus(200);

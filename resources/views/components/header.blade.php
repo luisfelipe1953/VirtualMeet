@@ -42,7 +42,7 @@
                 </a>
                 <p class="ttext-2xl ml-2 sm:ml-0 font-bold my-[20px]  uppercase">Octubre 5-6 2023</p>
                 <p class="text-xl ml-2 sm:ml-0 font-bold my-[20px]  uppercase">En Linea - Precencial</p>
-                <a href="/paquetes" class="ml-2 sm:ml-0 btn-primario">Comprar Pase</a>
+                <a href="/packages" class="ml-2 sm:ml-0 btn-primario">Comprar Pase</a>
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
         </a>
         <nav class="flex flex-col sm:flex-row">
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('virtualmeet') ? 'bg-white text-primario' : '' }}" href="/virtualmeet">Evento</a>
-            <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('paquetes') ? 'bg-white text-primario' : '' }}" href="/paquetes">Paquetes</a>
+            <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('paquetes') ? 'bg-white text-primario' : '' }}" href="/packages">Paquetes</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('conferencias-workshops') ? 'bg-white text-primario' : '' }}" href="/conferencias-workshops">Workshops / Conferencias</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('speakers') ? 'bg-white text-primario' : '' }}" href="/speakers">Speakers</a>
         </nav>

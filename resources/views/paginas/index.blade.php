@@ -258,7 +258,7 @@
     </div>
 
     <div class="text-center mt-10">
-        <a href="/paquetes" class="btn-crear ">Ver Paquetes</a>
+        <a href="/packages" class="btn-crear ">Ver Paquetes</a>
     </div>
 </section>
 

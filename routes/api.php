@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/evento', [APIcontroller::class, 'evento']);
-Route::get('/ponentes', [APIcontroller::class, 'ponentes']);
+Route::get('/speakers', [APIcontroller::class, 'ponentes']);
 Route::get('/ponente', [APIcontroller::class, 'ponente']);
-Route::get('/regalos', [APIcontroller::class, 'regalos']);
+Route::get('/gifts', [APIcontroller::class, 'regalos']);
 

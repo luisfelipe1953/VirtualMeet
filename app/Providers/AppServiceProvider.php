@@ -17,7 +17,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(SpeakerRepositoryInterface::class, SpeakerRepository::class);
-        
     }
 
     /**

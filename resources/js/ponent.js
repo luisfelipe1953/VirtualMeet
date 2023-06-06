@@ -27,7 +27,7 @@
         }
 
         async function obtenerPonentes() {
-            const url = `/api/ponentes`
+            const url = `/api/speakers`
 
             const respuesta = await fetch(url);
             const resultado = await respuesta.json();

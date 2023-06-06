@@ -42,7 +42,7 @@ class SpeakerController extends Controller
 
         $this->speaker->storePonente($request ,$image);
 
-        return redirect('/ponentes')->with('success', 'Agregado Correctamente');;
+        return redirect('/speakers')->with('success', 'Agregado Correctamente');;
     }
 
 
@@ -67,7 +67,7 @@ class SpeakerController extends Controller
 
         $this->speaker->updatePonente($networks, $request);
 
-        return redirect('/ponentes')->with('success', 'Editado Correctamente');
+        return redirect('/speakers')->with('success', 'Editado Correctamente');
     }
 
 
@@ -79,6 +79,6 @@ class SpeakerController extends Controller
 
         $this->speaker->destroy($networks);
 
-        return redirect('/ponentes')->with('success', 'Eliminado Correctamente');
+        return redirect('/speakers')->with('success', 'Eliminado Correctamente');
     }
 }

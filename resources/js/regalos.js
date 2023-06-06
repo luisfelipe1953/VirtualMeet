@@ -4,7 +4,7 @@
 
         obtenerRegalos();
         async function obtenerRegalos(){
-          const url = '/api/regalos'
+          const url = '/api/gifts'
           const respuesta = await fetch(url)
           const resultado = await respuesta.json();
         

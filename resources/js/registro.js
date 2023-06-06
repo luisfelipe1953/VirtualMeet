@@ -128,7 +128,7 @@
                     'Registro Exitoso',
                     'Tus conferencias se han almacenado y tu registro fue exitoso, te esperamos en VirtualMeet',
                     'success'
-                ).then( () => location.href = `/boleto?id=${resultado.token}`) 
+                ).then( () => location.href = `/ticket?id=${resultado.token}`) 
             } else {
                 Swal.fire({
                     title: 'Error',

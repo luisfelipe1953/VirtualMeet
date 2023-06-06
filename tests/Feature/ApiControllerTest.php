@@ -55,7 +55,7 @@ class ApiControllerTest extends TestCase
         $speaker1 = Speaker::factory()->create();
         $speaker2 = Speaker::factory()->create();
 
-        $response = $this->get('/api/ponentes');
+        $response = $this->get('/api/speakers');
 
         $response->assertStatus(200);
         $response->assertJsonFragment([
@@ -108,7 +108,7 @@ class ApiControllerTest extends TestCase
         Record::factory()->create(['gift_id' => $gift1->id])->count;
         Record::factory()->create(['gift_id' => $gift2->id])->count;
     
-        $response = $this->get('/api/regalos');
+        $response = $this->get('/api/gifts');
     
         $response->assertStatus(200);
         $response->assertJsonFragment([

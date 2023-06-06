@@ -19,7 +19,7 @@
 
 
 <div class="container-md mx-auto sm:shadow-form bg-white p-[20px] rounded-xl mt-12">
-    <form action="/eventos/{{$evento->id}}" method="POST" enctype="multipart/form-data">
+    <form action="/events/{{$evento->id}}" method="POST" enctype="multipart/form-data">
         <p class="mb-2">Informacion Evento</p>
         @csrf
         @method('PUT')

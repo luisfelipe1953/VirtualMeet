@@ -12,7 +12,7 @@
     </a>
 </div>
 
-<form action="/ponentes/{{$ponente->id}}" method="POST" class="container-md mx-auto sm:shadow-form bg-white p-[20px] rounded-xl mt-12" enctype="multipart/form-data">
+<form action="/speakers/{{$ponente->id}}" method="POST" class="container-md mx-auto sm:shadow-form bg-white p-[20px] rounded-xl mt-12" enctype="multipart/form-data">
     @csrf
     @method('PUT')  
     @include('admin.ponente.formulario')

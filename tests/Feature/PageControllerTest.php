@@ -112,7 +112,7 @@ class PageControllerTest extends TestCase
     {
         Speaker::factory(2)->create();
 
-        $response = $this->get('/speakers');
+        $response = $this->get('/speaker');
 
         $response->assertViewIs('paginas.speakers');
 

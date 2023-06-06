@@ -46,8 +46,8 @@ class RecordControllerTest extends TestCase
             ]
         );
 
-        // Enviamos una petición GET a la ruta /paquetes
-        $response = $this->actingAs($user)->get('/paquetes');
+        // Enviamos una petición GET a la ruta /packages
+        $response = $this->actingAs($user)->get('/packages');
 
         // Verificamos que la respuesta tenga un estado HTTP 302 (Found, es decir, redirección)
         $response->assertStatus(302);
@@ -65,8 +65,8 @@ class RecordControllerTest extends TestCase
         // Creamos un usuario para simular la sesión iniciada
         $user = User::factory()->create();
 
-        // Enviamos una petición GET a la ruta /paquetes
-        $response = $this->actingAs($user)->get('/paquetes');
+        // Enviamos una petición GET a la ruta /packages
+        $response = $this->actingAs($user)->get('/packages');
 
         // Verificamos que la respuesta tenga un estado HTTP 200 (OK)
         $response->assertOk();
@@ -80,7 +80,7 @@ class RecordControllerTest extends TestCase
     {
         $this->withoutEvents();
 
-        $response = $this->get('/paquetes');
+        $response = $this->get('/packages');
 
         $response->assertStatus(302);
 
@@ -103,11 +103,11 @@ class RecordControllerTest extends TestCase
             'package_id' => Record::TREE,
         ]);
 
-        $response = $this->get('/paquetes');
+        $response = $this->get('/packages');
 
         $response->assertStatus(302);
 
-        $response->assertRedirect('/boleto?id=' . urlencode($record->token));
+        $response->assertRedirect('/ticket?id=' . urlencode($record->token));
     }
 
 
@@ -116,8 +116,8 @@ class RecordControllerTest extends TestCase
     {
         $this->withoutEvents();
 
-        // Enviamos una petición GET a la ruta /paquetes
-        $response = $this->get('/paquetes');
+        // Enviamos una petición GET a la ruta /packages
+        $response = $this->get('/packages');
 
         // Verificamos que la respuesta tenga un estado HTTP 302 (Found, es decir, redirección)
         $response->assertStatus(302);
@@ -155,7 +155,7 @@ class RecordControllerTest extends TestCase
             'payment_id' => 'AS4DA4SD11DA14SA',
         ];
 
-        $response = $this->actingAs($user)->post('/finalizar-registro/pagar', $recordData);
+        $response = $this->actingAs($user)->post('/packagesfinish-registration/pay', $recordData);
 
         $response->assertStatus(200);
 
@@ -179,7 +179,7 @@ class RecordControllerTest extends TestCase
         $registro = Record::factory()->create(['user_id' => $user->id]);
 
         // Envía una solicitud GET al endpoint de la vista del boleto con el ID del registro
-        $response = $this->get('/boleto?id=' . $registro->token);
+        $response = $this->get('/ticket?id=' . $registro->token);
 
         // Comprueba que la respuesta tenga un código de estado 200
         $response->assertStatus(200);
@@ -244,7 +244,7 @@ class RecordControllerTest extends TestCase
         $response = $this->get('finalizar-registro/conferencias');
 
         // Verificar que se redirige a la ruta boleto con el token del registro en la URL
-        $response->assertRedirect('/boleto?id=' . urlencode($record->token));
+        $response->assertRedirect('/ticket?id=' . urlencode($record->token));
     }
 
     public function test_record_conferences_or_workshops()

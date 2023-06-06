@@ -27,7 +27,7 @@ class RecordController extends Controller
     private function redirectTicket($record)
     {
         if ($record->package_id == Record::TREE || $record->package_id == Record::TWO) {
-            return redirect('/boleto?id=' . urlencode($record->token));
+            return redirect('/ticket?id=' . urlencode($record->token));
         }
     }
 
@@ -85,7 +85,7 @@ class RecordController extends Controller
 
         $record = $this->record->saveRecord($token, $this->getUserId());
 
-        return redirect('/boleto?id=' . urlencode($record->token))->with('message', 'Registro exitoso.');
+        return redirect('/ticket?id=' . urlencode($record->token))->with('message', 'Registro exitoso.');
     }
 
 
@@ -151,7 +151,7 @@ class RecordController extends Controller
         //si hay regalo es porque ya registro los eventos y se redirecciona al boleto
         foreach ($recordId as $recordId) {
             if (isset($recordId)) {
-                return redirect('/boleto?id=' . urlencode($record->token)); //
+                return redirect('/ticket?id=' . urlencode($record->token)); //
             }
         }
 
