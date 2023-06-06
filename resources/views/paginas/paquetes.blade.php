@@ -85,7 +85,7 @@
                     const datos = new FormData();
                     datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
 
-                    fetch('/packagesfinish-registration/pay', {
+                    fetch('/finish-registration/pay', {
                             method: 'POST',
                             body: datos
                         })
@@ -133,7 +133,7 @@
                     const datos = new FormData();
                     datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
 
-                    fetch('/packagesfinish-registration/pay', {
+                    fetch('/finish-registration/pay', {
                             method: 'POST',
                             body: datos
                         })
