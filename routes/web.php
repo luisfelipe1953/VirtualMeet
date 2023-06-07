@@ -28,7 +28,7 @@ Route::get('speaker', [PageController::class, 'speakers']);
 Route::get('packages', [RecordController::class, 'paquetes']);
 
 // pagar
-Route::post('finish-registration/pay', [RecordController::class, 'pagar']);
+Route::post('/finalizar-registro/pagar', [RecordController::class, 'pagar']);
 
 Route::middleware('can:admin,user')->group(function () {
     Route::get('ticket', [RecordController::class, 'boleto']);
