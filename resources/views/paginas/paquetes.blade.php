@@ -79,6 +79,7 @@
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(orderData) {
                     const datos = new FormData();
+                    datos.append('_token', '{{ csrf_token() }}');
                     datos.append('package_id', orderData.purchase_units[0].description);
                     datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
                     fetch('/finalizar-registro/pagar', {
@@ -116,6 +117,7 @@
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(orderData) {
                     const datos = new FormData();
+                    datos.append('_token', '{{ csrf_token() }}');
                     datos.append('package_id', orderData.purchase_units[0].description);
                     datos.append('payment_id', orderData.purchase_units[0].payments.captures[0].id);
                     fetch('/finalizar-registro/pagar', {
