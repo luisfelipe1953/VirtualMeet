@@ -31,11 +31,11 @@ class EventControllerTest extends TestCase
         $this->withoutEvents();
 
         // When - Cuando se visita la página de creación de eventos
-        $response = $this->get(route('eventos.create'));
+        $response = $this->get(route('events.create'));
 
         // Then - Entonces se debe cargar la vista de creación de eventos con los datos correctos
         $response->assertSuccessful();
-        $response->assertViewIs('admin.eventos.create');
+        $response->assertViewIs('admin.events.create');
         $response->assertViewHas('data');
         $response->assertViewHas('evento');
 
@@ -68,7 +68,7 @@ class EventControllerTest extends TestCase
         $response = $this->post(route('eventos.store'), $data);
 
         // Then - Entonces el evento debe ser creado y redireccionar a la página de índice de eventos con mensaje de éxito
-        $response->assertRedirect(route('eventos.index'));
+        $response->assertRedirect(route('events.index'));
         $response->assertSessionHas('success', 'Agregado Correctamente');
         $this->assertDatabaseHas('events', $data);
     }
@@ -84,11 +84,11 @@ class EventControllerTest extends TestCase
         $event = Event::factory()->create();
 
         // When - Cuando se visita la página de edición del evento
-        $response = $this->get(route('eventos.edit', $event));
+        $response = $this->get(route('events.edit', $event));
 
         // Then - Entonces se debe cargar la vista de edición de eventos con los datos correctos
         $response->assertSuccessful();
-        $response->assertViewIs('admin.eventos.edit');
+        $response->assertViewIs('admin.events.edit');
         $response->assertViewHas('data');
         $response->assertViewHas('evento');
 
@@ -123,7 +123,7 @@ class EventControllerTest extends TestCase
         ]);
 
         // Then - Entonces se debe redirigir a la lista de eventos con un mensaje de éxito
-        $response->assertRedirect(route('eventos.index'));
+        $response->assertRedirect(route('events.index'));
         $response->assertSessionHas('success', 'Editado Correctamente');
 
         // Comprobar que el evento ha sido actualizado correctamente en la base de datos
@@ -152,7 +152,7 @@ class EventControllerTest extends TestCase
         $response = $this->delete(route('eventos.destroy', $event->id));
 
         // Then - Entonces se debe redirigir a la lista de eventos con el mensaje correcto
-        $response->assertRedirect(route('eventos.index'));
+        $response->assertRedirect(route('events.index'));
         $response->assertSessionHas('success', 'Eliminado Correctamente');
 
         // Asegurarse de que el evento se haya eliminado de la base de datos
@@ -166,13 +166,13 @@ class EventControllerTest extends TestCase
         $this->withoutEvents();
 
         // When - Cuando se visita la página de índice de eventos
-        $response = $this->get(route('eventos.index'));
+        $response = $this->get(route('events.index'));
 
         Event::paginate(5);
 
         // Then - Entonces se debe cargar la vista de índice de eventos con los eventos correctos
         $response->assertSuccessful();
-        $response->assertViewIs('admin.eventos.index');
+        $response->assertViewIs('admin.events.index');
         $response->assertViewHas('eventos');
         $this->assertInstanceOf(Paginator::class, $response->viewData('eventos'));
     }

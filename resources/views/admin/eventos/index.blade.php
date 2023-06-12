@@ -11,7 +11,7 @@
 @section('crud')
 
 <div class="sm:flex sm:justify-end">
-    <a class="btn-crear block sm:inline " href="{{route('eventos.create')}}">
+    <a class="btn-crear block sm:inline " href="{{route('events.create')}}">
         <i class="fa-solid fa-circle-plus"></i>
         Añadir Evento
     </a>
@@ -63,7 +63,7 @@
                         {{ $evento->speaker->name . ", " . $evento->speaker->lastname }}
                     </td>
                     <td class="px-6 py-4 flex text-base">
-                        <a href="{{route('eventos.edit', $evento)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
+                        <a href="{{route('events.edit', $evento)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
                             <i class="fa-solid fa-pencil text-primario"></i>
                             Editar</a>
                         <form action="{{route('eventos.destroy', $evento->id)}}" method="POST" class="text-red font-bold ">

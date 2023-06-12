@@ -21,7 +21,7 @@ class SpeakerControllerTest extends TestCase
         $this->withoutEvents();
 
         // Simular una solicitud HTTP GET a la ruta de creación de ponentes
-        $response = $this->get(route('ponentes.create'));
+        $response = $this->get(route('speakers.create'));
 
         // Verificar que la respuesta HTTP tenga el código 200 (OK)
         $response->assertOk();
@@ -63,7 +63,7 @@ class SpeakerControllerTest extends TestCase
 
         Storage::disk('public')->assertExists('img/speakers/' . $speaker . '.png');
 
-        $response->assertRedirect(route('ponentes.index'));
+        $response->assertRedirect(route('speakers.index'));
 
         $response->assertSessionHas('success', 'Agregado Correctamente');
 
@@ -81,7 +81,7 @@ class SpeakerControllerTest extends TestCase
         $speaker = Speaker::factory()->create();
 
         // Realiza una solicitud GET a la ruta de edición del ponente
-        $response = $this->get(route('ponentes.edit', $speaker->id));
+        $response = $this->get(route('speakers.edit', $speaker->id));
 
         // Verifica que la respuesta tenga el estado HTTP 200
         $response->assertStatus(200);
@@ -144,7 +144,7 @@ class SpeakerControllerTest extends TestCase
         Storage::disk('public')->delete('img/speakers/' . $firstSpeaker->image . '.png');
 
         // Verificar que la petición redirige al índice de ponentes y que se muestra el mensaje de éxito
-        $response->assertRedirect(route('ponentes.index'));
+        $response->assertRedirect(route('speakers.index'));
         $response->assertSessionHas('success', 'Editado Correctamente');
 
         // Verificar que los datos del ponente hayan sido actualizados en la base de datos
@@ -175,7 +175,7 @@ class SpeakerControllerTest extends TestCase
 
         $response = $this->delete(route('ponentes.destroy', $speaker->id));
 
-        $response->assertRedirect(route('ponentes.index'));
+        $response->assertRedirect(route('speakers.index'));
 
         $response->assertSessionHas('success', 'Eliminado Correctamente');
 
@@ -197,7 +197,7 @@ class SpeakerControllerTest extends TestCase
         Speaker::factory(10)->create();
 
         // Ejecutar el método
-        $response = $this->get(route('ponentes.index'));
+        $response = $this->get(route('speakers.index'));
 
         // Verificar la respuesta HTTP exitosa
         $response->assertSuccessful();

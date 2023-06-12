@@ -20,7 +20,7 @@ class EventController extends Controller
     {   
        $event = $this->event->paginatedData(5);
     
-        return view('admin.eventos.index', [
+        return view('admin.events.index', [
             'eventos' => $event
         ]);
     }
@@ -30,7 +30,7 @@ class EventController extends Controller
         $data = $this->event->getDateFormCreate();
 
 
-        return view('admin.eventos.create')->with([
+        return view('admin.events.create')->with([
             'data' => $data,
             'evento' => new Event,
         ]);
@@ -42,7 +42,7 @@ class EventController extends Controller
 
         $this->event->save($event);
 
-        return redirect()->route('eventos.index')->with('success', 'Agregado Correctamente');
+        return redirect()->route('events.index')->with('success', 'Agregado Correctamente');
     }
 
     public function edit($id)
@@ -51,7 +51,7 @@ class EventController extends Controller
 
         $data = $this->event->getDateFormCreate();
       
-        return view('admin.eventos.edit')->with([
+        return view('admin.events.edit')->with([
             'data' => $data,
             'evento' => $events
         ]);
@@ -65,7 +65,7 @@ class EventController extends Controller
 
         $this->event->save($event);
 
-        return redirect()->route('eventos.index')->with('success', 'Editado Correctamente');
+        return redirect()->route('events.index')->with('success', 'Editado Correctamente');
     }
 
     public function destroy($id)
@@ -74,6 +74,6 @@ class EventController extends Controller
 
         $this->event->destroy($event);
         
-        return redirect()->route('eventos.index')->with('success', 'Eliminado Correctamente');
+        return redirect()->route('events.index')->with('success', 'Eliminado Correctamente');
     }
 }

@@ -11,7 +11,7 @@
 @section('crud')
 
 <div class="sm:flex sm:justify-end">
-    <a class="btn-crear block sm:inline " href="{{route('eventos.index')}}">
+    <a class="btn-crear block sm:inline " href="{{route('events.index')}}">
         <i class="fa-solid fa-arrow-left"></i>
         Volver
     </a>

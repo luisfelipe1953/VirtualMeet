@@ -11,7 +11,7 @@
 @section('crud')
 
 <div class="sm:flex sm:justify-end">
-    <a class="btn-crear block sm:inline " href="{{route('ponentes.create')}}">
+    <a class="btn-crear block sm:inline " href="{{route('speakers.create')}}">
         <i class="fa-solid fa-circle-plus"></i>
         Añadir Ponente
     </a>
@@ -56,7 +56,7 @@
                         {{$ponente->city . ", ". $ponente->country}}
                     </td>
                     <td class="py-4 flex text-base">
-                        <a href="{{route('ponentes.edit', $ponente)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
+                        <a href="{{route('speakers.edit', $ponente)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
                             <i class="fa-solid fa-user-pen text-primario"></i>
                             Editar</a>
                         <form action="{{route('ponentes.destroy', $ponente->id)}}" method="POST" class="text-red font-bold ">

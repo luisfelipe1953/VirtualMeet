@@ -6,7 +6,7 @@
 
 @section('crud')
 <div class="sm:flex sm:justify-end">
-    <a class="btn-crear block sm:inline " href="{{route('ponentes.index')}}">
+    <a class="btn-crear block sm:inline " href="{{route('speakers.index')}}">
         <i class="fa-solid fa-arrow-left"></i>
         Volver
     </a>

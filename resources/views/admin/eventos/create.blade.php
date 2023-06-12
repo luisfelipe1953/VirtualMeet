@@ -11,7 +11,7 @@
 @section('crud')
 
 <div class="sm:flex sm:justify-end">
-    <a class="btn-crear block sm:inline " href="{{route('eventos.index')}}">
+    <a class="btn-crear block sm:inline " href="{{route('events.index')}}">
         <i class="fa-solid fa-arrow-left"></i>
         Volver
     </a>
@@ -26,11 +26,11 @@
 
 
 <div class="container-md sm:shadow-form bg-white p-[20px] rounded-xl mt-12">
-    <form action="{{route('eventos.index')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('events.index')}}" method="POST" enctype="multipart/form-data">
         <p class="mb-2">Informacion Evento</p>
         @csrf
         @include('admin.eventos.formulario')
-        <button href="{{route('eventos.index')}}" type="submit" class="btn-crear w-full mt-4">Registrar Evento</button>
+        <button href="{{route('events.index')}}" type="submit" class="btn-crear w-full mt-4">Registrar Evento</button>
     </form>
 </div>
 
