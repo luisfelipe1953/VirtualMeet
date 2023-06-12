@@ -173,7 +173,7 @@ class SpeakerControllerTest extends TestCase
         // Obtener el primer ponente
         $speaker = Speaker::first();
 
-        $response = $this->delete(route('ponentes.destroy', $speaker->id));
+        $response = $this->delete(route('speakers.destroy', $speaker->id));
 
         $response->assertRedirect(route('speakers.index'));
 

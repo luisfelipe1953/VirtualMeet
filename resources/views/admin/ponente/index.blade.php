@@ -59,7 +59,7 @@
                         <a href="{{route('speakers.edit', $ponente)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
                             <i class="fa-solid fa-user-pen text-primario"></i>
                             Editar</a>
-                        <form action="{{route('ponentes.destroy', $ponente->id)}}" method="POST" class="text-red font-bold ">
+                        <form action="{{route('speakers.destroy', $ponente->id)}}" method="POST" class="text-red font-bold ">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="hover:text-red-800">

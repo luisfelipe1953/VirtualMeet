@@ -66,7 +66,7 @@
                         <a href="{{route('events.edit', $evento)}}" class="hover:text-primarioDarken font-bold mr-2 text-primario">
                             <i class="fa-solid fa-pencil text-primario"></i>
                             Editar</a>
-                        <form action="{{route('eventos.destroy', $evento->id)}}" method="POST" class="text-red font-bold ">
+                        <form action="{{route('events.destroy', $evento->id)}}" method="POST" class="text-red font-bold ">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="hover:text-red-800">

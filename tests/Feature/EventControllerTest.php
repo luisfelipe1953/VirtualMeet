@@ -149,7 +149,7 @@ class EventControllerTest extends TestCase
         $event = Event::factory()->create();
 
         // When - Cuando se envía una solicitud para eliminar el evento
-        $response = $this->delete(route('eventos.destroy', $event->id));
+        $response = $this->delete(route('events.destroy', $event->id));
 
         // Then - Entonces se debe redirigir a la lista de eventos con el mensaje correcto
         $response->assertRedirect(route('events.index'));
