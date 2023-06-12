@@ -20,7 +20,7 @@ class EventController extends Controller
     {   
        $event = $this->event->paginatedData(5);
     
-        return view('admin.events.index', [
+        return view('admin.eventos.index', [
             'eventos' => $event
         ]);
     }
@@ -30,7 +30,7 @@ class EventController extends Controller
         $data = $this->event->getDateFormCreate();
 
 
-        return view('admin.events.create')->with([
+        return view('admin.eventos.create')->with([
             'data' => $data,
             'evento' => new Event,
         ]);
@@ -51,7 +51,7 @@ class EventController extends Controller
 
         $data = $this->event->getDateFormCreate();
       
-        return view('admin.events.edit')->with([
+        return view('admin.eventos.edit')->with([
             'data' => $data,
             'evento' => $events
         ]);

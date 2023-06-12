@@ -35,7 +35,7 @@ class EventControllerTest extends TestCase
 
         // Then - Entonces se debe cargar la vista de creación de eventos con los datos correctos
         $response->assertSuccessful();
-        $response->assertViewIs('admin.events.create');
+        $response->assertViewIs('admin.eventos.create');
         $response->assertViewHas('data');
         $response->assertViewHas('evento');
 
@@ -88,7 +88,7 @@ class EventControllerTest extends TestCase
 
         // Then - Entonces se debe cargar la vista de edición de eventos con los datos correctos
         $response->assertSuccessful();
-        $response->assertViewIs('admin.events.edit');
+        $response->assertViewIs('admin.eventos.edit');
         $response->assertViewHas('data');
         $response->assertViewHas('evento');
 
@@ -172,7 +172,7 @@ class EventControllerTest extends TestCase
 
         // Then - Entonces se debe cargar la vista de índice de eventos con los eventos correctos
         $response->assertSuccessful();
-        $response->assertViewIs('admin.events.index');
+        $response->assertViewIs('admin.eventos.index');
         $response->assertViewHas('eventos');
         $this->assertInstanceOf(Paginator::class, $response->viewData('eventos'));
     }
