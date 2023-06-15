@@ -27,8 +27,8 @@
                 }
             </style>
             <picture>
-                <source srcset="{{ env('HOST') . '/storage/imagenes/speakers/' . $speaker->imagen }}.png" type="image/png">
-                <img class="w-full  m-0" loading="lazy" width="200" height="300" src="{ env('HOST') . '/storage/imagenes/speakers/' . $speaker->imagen }}.png" alt="Imagen spe$speaker">
+                <source srcset="{{ env('HOST') . '/storage/img/speakers/' . $speaker->image }}.png" type="image/png">
+                <img class="w-full  m-0" loading="lazy" width="200" height="300" src="{ env('HOST') . '/storage/img/speakers/' . $speaker->image }}.png" alt="Imagen spe$speaker">
             </picture>
 
             <div class="speaker__informacion">

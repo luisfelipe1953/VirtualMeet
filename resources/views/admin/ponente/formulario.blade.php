@@ -27,8 +27,8 @@
     <p class="">Imagen Actual:</p>
     <div class="max-w-[200px]">
         <picture>
-            <source srcset="{{ env('HOST') . '/storage/img/speakers/' . $ponente->imagen }}.webp" type="image/webp">
-            <source srcset="{{ env('HOST') . '/storage/img/speakers/' . $ponente->imagen }}.png" type="image/png">
+            <source srcset="{{ env('HOST') . '/storage/img/speakers/' . $ponente->image }}.webp" type="image/webp">
+            <source srcset="{{ env('HOST') . '/storage/img/speakers/' . $ponente->image }}.png" type="image/png">
             <img src="{{ env('HOST') . '/img/speakers/' . $ponente->image }}.png" alt="Imagen Ponente">
         </picture>
     </div>

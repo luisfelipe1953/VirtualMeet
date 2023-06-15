@@ -28,7 +28,7 @@ class ImageService
         $imagen_webp = Image::make($file)->fit(800, 800)->encode('webp', 80);
 
         Storage::disk('public')->put($path . '/' . $nameImage . '.png', (string)$imagen_png, 'public');
-        Storage::disk('public')->put($path . '/' . $nameImage . '.png', (string)$imagen_webp, 'public');
+        Storage::disk('public')->put($path . '/' . $nameImage . '.webp', (string)$imagen_webp, 'public');
 
         return $nameImage;
     }

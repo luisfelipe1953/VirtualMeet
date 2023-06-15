@@ -18,7 +18,7 @@
                 'hora' => $evento->time->time,
                 'nombre' => $evento->name,
                 'descripcion' => $evento->description,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_imagen' => env('HOST') . '/storage/img/speakers/' . $evento->speaker->image,
                 'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
                 'disponibles' => $evento->available
@@ -38,7 +38,7 @@
                 'hora' => $evento->time->time,
                 'nombre' => $evento->name,
                 'descripcion' => $evento->description,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_imagen' => env('HOST') . '/storage/img/speakers/' . $evento->speaker->image,
                 'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
                 'disponibles' => $evento->available
@@ -59,7 +59,7 @@
                 'hora' => $evento->time->time,
                 'nombre' => $evento->name,
                 'descripcion' => $evento->description,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_imagen' => env('HOST') . '/storage/img/speakers/' . $evento->speaker->image,
                 'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
                 'disponibles' => $evento->available
@@ -77,7 +77,7 @@
                 'hora' => $evento->time->time,
                 'nombre' => $evento->name,
                 'descripcion' => $evento->description,
-                'ponente_imagen' => env('HOST') . '/storage/imagenes/speakers/' . $evento->speaker->image,
+                'ponente_imagen' => env('HOST') . '/storage/img/speakers/' . $evento->speaker->image,
                 'ponente_nombre' => $evento->speaker->name . " " . $evento->speaker->lastname,
                 'eventoId' => $evento->id,
                 'disponibles' => $evento->available
