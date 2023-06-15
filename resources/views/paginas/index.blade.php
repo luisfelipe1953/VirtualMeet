@@ -217,7 +217,7 @@
         @endforeach
     </div>
     <div class="flex justify-end mr-48">
-        <a href="/speakers" class="btn-crear">Ver mas </a>
+        <a href="/speaker" class="btn-crear">Ver mas </a>
     </div>
 
 </section>

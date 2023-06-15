@@ -61,7 +61,7 @@
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('virtualmeet') ? 'bg-white text-primario' : '' }}" href="/virtualmeet">Evento</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('paquetes') ? 'bg-white text-primario' : '' }}" href="/packages">Paquetes</a>
             <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('conferencias-workshops') ? 'bg-white text-primario' : '' }}" href="/conferencias-workshops">Workshops / Conferencias</a>
-            <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('speakers') ? 'bg-white text-primario' : '' }}" href="/speakers">Speakers</a>
+            <a class="text-xl p-[20px] text-center font-black uppercase hover:bg-blanco hover:text-primario {{ request()->is('speakers') ? 'bg-white text-primario' : '' }}" href="/speaker">Speakers</a>
         </nav>
     </div>
 </div>

@@ -32,7 +32,7 @@ Route::post('/finalizar-registro/pagar', [RecordController::class, 'pagar']);
 
 Route::middleware('can:admin,user')->group(function () {
     Route::get('ticket', [RecordController::class, 'boleto']);
-    Route::post('finalizar-registro/gratis', [RecordController::class, 'paqueteGratis']);
+    Route::get('finalizar-registro/gratis', [RecordController::class, 'paqueteGratis']);
     Route::get('finalizar-registro/conferencias', [RecordController::class, 'elegirConferencia']);
 });
 
