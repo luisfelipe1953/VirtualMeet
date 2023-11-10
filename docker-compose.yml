@@ -1,0 +1,69 @@
+version: '3.8'
+services:
+  virtualmeet-nginx:
+    image: nginx:alpine3.17
+    restart: always
+    depends_on:
+      - virtualmeet-db
+      - virtualmeet
+    container_name: virtualmeet-nginx
+    ports:
+      - 81:80
+      - 444:443
+    volumes:
+      - ./:/var/www
+      - ./docker/:/etc/nginx/conf.d
+    networks:
+      - virtualmeet-networks
+
+  virtualmeet-db:
+    image: mysql:8.0.33
+    restart: unless-stopped
+    container_name: virtualmeet-db
+    env_file:
+      - ./.env
+    environment:
+      - MYSQL_USER=virtualmeetdb
+      - MYSQL_PASSWORD=virtualmeetdb
+      - MYSQL_DATABASE=virtualmeetdb
+      - MYSQL_ROOT_PASSWORD=virtualmeetdb
+    ports:
+      - 3306:3306
+    volumes:
+      - virtualmeet-db:/var/lib/mysql
+    networks:
+      - virtualmeet-networks
+
+  virtualmeet:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: virtualmeet
+    working_dir: /var/www
+    ports:
+      - 9000:9000
+    networks:
+      - virtualmeet-networks
+    volumes:
+      - ./:/var/www
+
+  lv_node:
+    image: node:lts-alpine
+    container_name: lv_node
+    working_dir: /var/www
+    ports:
+      - 5200:5200
+    volumes:
+      - ./:/var/www
+      - /var/www/node_modules
+    command: sh /var/www/docker/node_start.sh
+    networks:
+      - virtualmeet-networks
+
+volumes:
+  virtualmeet-db:
+
+
+networks:
+  virtualmeet-networks:
+    driver: bridge
